@@ -1,6 +1,9 @@
+import webpack from 'webpack';
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
+    mode: 'development',
     resolve: {
         extensions: ['*', '.js', '.jsx', '.json']
     },
@@ -15,7 +18,7 @@ export default {
         filename: 'bundle.js'
     },
     plugins: [
-        /*new webpack.LoaderOptionsPlugin({
+        new webpack.LoaderOptionsPlugin({
             minimize: false,
             debug: true,
             noInfo: true // set to false to see a list of every file being bundled.
@@ -24,7 +27,7 @@ export default {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: true
-        })*/
+        })
     ],
     module: {
         rules: [
