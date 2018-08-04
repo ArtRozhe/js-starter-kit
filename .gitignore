@@ -60,3 +60,5 @@ typings/
 # Editor
 .idea
 
+# API mocking
+src/api/db.json
