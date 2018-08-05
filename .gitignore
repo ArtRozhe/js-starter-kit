@@ -62,3 +62,6 @@ typings/
 
 # API mocking
 src/api/db.json
+
+# Production
+dist
