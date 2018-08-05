@@ -9,7 +9,8 @@ export default {
     },
     devtool: 'inline-source-map',
     entry: [
-        path.resolve(__dirname, 'src/index')
+        path.resolve(__dirname, 'src/index'),
+        'webpack-hot-middleware/client?reload=true'
     ],
     target: 'web',
     output: {
@@ -27,7 +28,9 @@ export default {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: true
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ],
     module: {
         rules: [
