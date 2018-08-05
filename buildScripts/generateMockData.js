@@ -10,6 +10,9 @@ import jsf from 'json-schema-faker';
 import { schema } from './mockDataSchema';
 import fs from 'fs';
 import chalk from 'chalk';
+import faker from 'faker';
+
+jsf.extend('faker', () => faker);
 
 const json = JSON.stringify(jsf(schema));
 
