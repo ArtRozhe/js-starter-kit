@@ -77,8 +77,31 @@ export default {
     ],
     module: {
         rules: [
-            {test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?sourceMap')}
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.scss$/, loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true,
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+            }
         ]
     }
 };
